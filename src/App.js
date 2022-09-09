@@ -1,40 +1,34 @@
-import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import React, { useState } from 'react';
+import { ChakraProvider, theme, Textarea, Text } from '@chakra-ui/react';
+import Title from './components/Title';
+import ReactMarkdown from 'react-markdown';
 
 function App() {
+  const [input, setInput] = useState('');
+  const [show, setShow] = useState(true);
+
+  let handleInputChange = e => {
+    let inputValue = e.target.value;
+    setInput(inputValue);
+  };
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
+      <Title />
+      <Text mb="8px" py="3" px="2">
+        MARKDOWN:
+      </Text>
+      <Textarea
+        input={input}
+        onChange={handleInputChange}
+        placeholder="Enter your markdown here!"
+        size="md"
+        px="2"
+      />
+      <Text mb="8px" py="3" px="2">
+        HTML:
+      </Text>
+
+      <div>{show && <ReactMarkdown>{input}</ReactMarkdown>} </div>
     </ChakraProvider>
   );
 }
