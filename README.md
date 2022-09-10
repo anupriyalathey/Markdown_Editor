@@ -1,3 +1,14 @@
+# Markdown Editor
+A markdown editor application with a light/dark mode toggle made using ReactJS and Chakra UI.
+
+### Screenshots:
+
+#### DARK MODE:![image](https://user-images.githubusercontent.com/90963726/189479863-11494fe9-bb44-4abd-9591-33a20d1b01b0.png)
+
+#### LIGHT MODE:![image](https://user-images.githubusercontent.com/90963726/189479898-6fa73157-7eca-477b-9f90-3491bc60ef2b.png)
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
